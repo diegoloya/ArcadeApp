@@ -10,4 +10,15 @@
     <string name="loseText">You Lose!</string>
     <string name="tieText">You Tied!</string>
 
+    //BUTTON MASH
+    <string name="Welcome">Welcome to Button Mash!</string>
+    <string name="Luck">Good Luck!</string>
+    <string name="Player1">Player 1</string>
+    <string name="Player2">Player 2</string>
+    <string name="One_Player">One Player</string>
+    <string name="Two_player">Two Player</string>
+    <string name="Tap">Tap!</string>
+    <string name="action_settings">Settings</string>
+
+
 </resources>

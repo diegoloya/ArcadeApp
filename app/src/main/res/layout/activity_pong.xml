@@ -11,7 +11,8 @@
     tools:context="com.txstate.gameapp.PongActivity">
 
     <TextView
-        android:text="Pong"
+        android:text="I DO NOTHING!!!"
+        android:textSize="60dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -22,3 +23,5 @@
         android:layout_marginTop="68dp"
         android:id="@+id/textView3" />
 </RelativeLayout>
+
+
