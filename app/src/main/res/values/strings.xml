@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Game</string>
+    <string name="app_name">ArcadeApp</string>
     <string name="button_rps">RPS</string>
     <string name="button_mash">Button Mash</string>
     <string name="button_pong">Pong</string>
