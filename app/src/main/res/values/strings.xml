@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Game</string>
+    <string name="button_rps">RPS</string>
+    <string name="button_mash">Button Mash</string>
+    <string name="button_pong">Pong</string>
+
+    //RPS RELATED
+    <string name="button1">Shoot</string>
+    <string name="winText">You Win!</string>
+    <string name="loseText">You Lose!</string>
+    <string name="tieText">You Tied!</string>
+
+</resources>
