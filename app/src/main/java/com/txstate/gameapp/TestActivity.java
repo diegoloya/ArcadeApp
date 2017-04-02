@@ -17,23 +17,21 @@ import com.txstate.gameapp.R;
 
 import java.util.Arrays;
 
-public class LoginActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 123;
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.testlayout);
+        //setContentView(R.layout.testlayout);
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
-            Intent signedIn = new Intent(this, MenuActivity.class);
-            startActivity(signedIn);
+            // already signed in
         } else {
             // not signed in
             startActivityForResult(
                     AuthUI.getInstance()
                             .createSignInIntentBuilder()
-                            .setTheme(R.style.GreenTheme)
                             .setProviders(Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
                                     new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
                                     new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build()))
@@ -43,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        // RC_SIGN_IN is the request code you passed into startActivityForResult(...) when starting the sign in flow.
         if (requestCode == RC_SIGN_IN) {
             IdpResponse response = IdpResponse.fromResultIntent(data);
 
@@ -56,3 +55,4 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 }
+
