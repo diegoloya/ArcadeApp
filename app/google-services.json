@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "595952840410",
+    "firebase_url": "https://arcadeapp-4da85.firebaseio.com",
+    "project_id": "arcadeapp-4da85",
+    "storage_bucket": "arcadeapp-4da85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595952840410:android:7d30185459516a10",
+        "android_client_info": {
+          "package_name": "com.txstate.gameapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595952840410-28q35lt5ps44emdpnktasi5e2kk4prpt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.txstate.gameapp",
+            "certificate_hash": "5a94075a5ccbb9c76783c46c1c826cba3f4f4adb"
+          }
+        },
+        {
+          "client_id": "595952840410-qe8lbf5chttkm26btjc2uq8ha4q9iujr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi-NaWyU-74cXmfHaYSDlUr15fi_iRk94"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595952840410-qe8lbf5chttkm26btjc2uq8ha4q9iujr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

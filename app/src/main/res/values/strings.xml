@@ -20,5 +20,8 @@
     <string name="Tap">Tap!</string>
     <string name="action_settings">Settings</string>
 
-
+    //FACEBOOK LOGIN
+    <string name="facebook_app_id">280688182359419</string>
+    <string name="loading">Loading</string>
+    <string name="action_logout"> Log Out</string>
 </resources>
