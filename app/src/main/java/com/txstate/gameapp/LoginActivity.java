@@ -1,58 +1,120 @@
 package com.txstate.gameapp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.ErrorCodes;
-import com.firebase.ui.auth.IdpResponse;
-import com.firebase.ui.auth.ResultCodes;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.txstate.gameapp.R;
-
-import java.util.Arrays;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final int RC_SIGN_IN = 123;
-    protected void onCreate (Bundle savedInstanceState){
+    //Firebase
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
+
+    //layout
+    EditText username;
+    EditText password;
+    Button login;
+    TextView register;
+    private ProgressDialog progressDialog;
+
+
+
+    //other
+    private static final String TAG = "MainActivity";
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.testlayout);
+        setContentView(R.layout.activity_login);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() != null) {
-            Intent signedIn = new Intent(this, MenuActivity.class);
-            startActivity(signedIn);
-        } else {
-            // not signed in
-            startActivityForResult(
-                    AuthUI.getInstance()
-                            .createSignInIntentBuilder()
-                            .setTheme(R.style.GreenTheme)
-                            .setProviders(Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build(),
-                                    new AuthUI.IdpConfig.Builder(AuthUI.GOOGLE_PROVIDER).build(),
-                                    new AuthUI.IdpConfig.Builder(AuthUI.FACEBOOK_PROVIDER).build()))
-                            .build(),
-                    RC_SIGN_IN);
-        }
-    }
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            IdpResponse response = IdpResponse.fromResultIntent(data);
+        mAuth = FirebaseAuth.getInstance();
 
-            // Successfully signed in
-            if (resultCode == ResultCodes.OK) {
-                Intent signedIn = new Intent(this, MenuActivity.class);
-                startActivity(signedIn);
-                finish();
-                return;
+        //layout
+        progressDialog = new ProgressDialog(this);
+        username = (EditText) findViewById(R.id.etUsername);
+        password = (EditText) findViewById(R.id.etPassword);
+        login = (Button) findViewById(R.id.bLogin);
+        register = (TextView) findViewById(R.id.tvRegisterHere);
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if (firebaseAuth.getCurrentUser() != null) {
+                    startActivity(new Intent(LoginActivity.this, MenuActivity.class));
+                }
             }
+        };
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                LoginActivity.this.startActivity(registerIntent);
+            }
+        });
+
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startSignIn();
+            }
+        });
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+
+    private void startSignIn(){
+        String email = username.getText().toString();
+        String pass = password.getText().toString();
+        email= email+"@email.com";
+
+        if (TextUtils.isEmpty(email)||TextUtils.isEmpty(pass)){
+            Toast.makeText(LoginActivity.this, "Fields are empty", Toast.LENGTH_LONG).show();
+
+        } else {
+            progressDialog.setMessage("Signing in...");
+            progressDialog.show();
+            mAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (!task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "Sign In Problem", Toast.LENGTH_LONG).show();
+                        progressDialog.cancel();
+                    }
+                    else {
+                        Toast.makeText(LoginActivity.this, "Sign In Successful", Toast.LENGTH_LONG).show();
+                        progressDialog.cancel();
+                        return;
+                    }
+                }
+            });
         }
     }
 }

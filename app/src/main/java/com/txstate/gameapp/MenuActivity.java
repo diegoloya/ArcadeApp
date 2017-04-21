@@ -43,7 +43,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void openRps(View view){
-        Intent newRps = new Intent(this, RpsActivity.class);
+        Intent newRps = new Intent(this, NumberPlayers.class);
         startActivity(newRps);
     }
 

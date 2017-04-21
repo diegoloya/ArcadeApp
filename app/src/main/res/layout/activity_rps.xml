@@ -66,5 +66,44 @@
         android:adjustViewBounds="true"
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/buttonPaper" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="L"
+        android:layout_marginLeft="320dp"
+        android:inputType="number"
+        android:textSize="50sp"
+        android:layout_marginTop="350dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="W"
+        android:textSize="50sp"
+        android:inputType="number"
+        android:layout_marginTop="350dp"/>
+
+    <TextView
+        android:id="@+id/wins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="0"
+        android:textSize="50sp"
+        android:inputType="number"
+        android:layout_marginTop="400dp"
+        />
+    <TextView
+        android:id="@+id/losses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:text="0"
+        android:textSize="50sp"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="320dp"
+        android:inputType="number"
+        />
 
 </RelativeLayout>

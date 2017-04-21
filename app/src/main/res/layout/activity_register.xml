@@ -1,54 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.txstate.gameapp.RegisterActivity"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:context="com.txstate.gameapp.RegisterActivity">
 
-    <!--<EditText-->
-        <!--android:id="@+id/RegisterName"-->
-        <!--android:ems="10"-->
-        <!--android:hint="Name"-->
-        <!--android:inputType="textPersonName"-->
-        <!--android:layout_width="400dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:layout_marginTop="25dp"-->
-        <!--android:layout_centerHorizontal="true" />-->
 
     <EditText
-        android:id="@+id/RegisterUsername"
+        android:id="@+id/RegisterName"
         android:ems="10"
-        android:hint="Email"
+        android:hint="Username"
         android:inputType="textPersonName"
-        android:layout_width="400dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintVertical_bias="0.055"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.488" />
 
     <EditText
         android:id="@+id/RegisterPassword"
         android:ems="10"
         android:hint="Password"
-        android:layout_below="@+id/RegisterUsername"
         android:inputType="textPassword"
-        android:layout_width="400dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        tools:layout_editor_absoluteY="40dp"
-        tools:layout_editor_absoluteX="5dp"/>
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterName"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bRegister"
+        app:layout_constraintVertical_bias="0.255"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/RegisterName"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/RegisterName"
+        app:layout_constraintHorizontal_bias="0.0" />
 
     <Button
         android:id="@+id/bRegister"
-        android:text="Register"
+        android:text="Register and login"
         android:layout_below="@+id/RegisterPassword"
-        android:layout_width="400dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginTop="25dp"
         android:layout_centerHorizontal="true"
-        tools:layout_editor_absoluteY="40dp"
-        tools:layout_editor_absoluteX="5dp"/>
-</RelativeLayout>
+        android:layout_marginBottom="317dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/RegisterPassword"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/RegisterPassword" />
+
+
+</android.support.constraint.ConstraintLayout>
