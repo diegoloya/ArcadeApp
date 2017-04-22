@@ -76,14 +76,15 @@ public class RegisterActivity extends AppCompatActivity {
         int rpsHigh = 0;
         int buttonHigh=0;
         int pianoHigh=0;
+        int choice=-1;
 
+        String uid = user.getUid();
 
-        Player student = new Player(username,rpsHigh, buttonHigh, pianoHigh, "", "");
-        databaseReference.child("Players").child(user.getUid()).setValue(student);
-
+        Player student = new Player(username,rpsHigh, buttonHigh, pianoHigh, 0, "", uid, choice);
+        mDatabase.child("Players").child(uid).setValue(student);
+        mDatabase.child("Uids").child(username).setValue(uid);
 
         Toast.makeText(this,"Information Saved...",Toast.LENGTH_LONG).show();
-
 
     }
 

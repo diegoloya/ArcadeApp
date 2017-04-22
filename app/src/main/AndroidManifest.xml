@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".TwoPlayer" />
-        <activity android:name=".NumberPlayers"></activity>
+        <activity android:name=".NumberPlayers" />
+        <activity android:name=".TwoPlayerRpsActivity"></activity>
     </application>
 
 </manifest>

@@ -6,15 +6,19 @@ public class Player {
     int rpsHigh;
     int buttonHigh;
     int pianoHigh;
-    String rpsMessage="";
+    int challengeFlag=0;
     String friend="";
+    String uid;
+    int rpsChoice=-1;
 
-    public Player (String u, int r, int b, int p, String message, String friend){
+    public Player (String u, int r, int b, int p, int flag, String friend, String uid, int rpsChoice){
         this.username=u;
         this.rpsHigh=r;
         this.buttonHigh=b;
         this.pianoHigh=p;
-        this.rpsMessage=message;
+        this.challengeFlag=flag;
         this.friend=friend;
+        this.uid=uid;
+        this.rpsChoice=rpsChoice;
     }
 }
