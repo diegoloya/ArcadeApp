@@ -46,6 +46,7 @@ public class RpsScore extends AppCompatActivity {
         score=(TextView) findViewById(R.id.score);
         bHighscore= (Button) findViewById(R.id.bhighscore);
         playAgain=(Button) findViewById(R.id.playAgain);
+        newHighscore=(TextView) findViewById(R.id.highscore);
 
         bHighscore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,13 +63,15 @@ public class RpsScore extends AppCompatActivity {
         });
         String scoreStr2 = "Score: "+ scoreStr;
         score.setText(scoreStr2);                    //set it to the TextView
-        getUsers(scoreStr);
+
+        getUsers(valueOf(scoreStr));
 
         //Toast.makeText(this, entries.get(1).getUsername(), Toast.LENGTH_SHORT).show();
         //getPlace(valueOf(scoreStr),entries);
     }
 
-    private void getUsers(final String score2) {
+    private void getUsers(int score2) {
+        final int score=score2;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         String hs = "hs";
         mDatabase.child("Highscores").orderByChild("flag").equalTo(hs).addListenerForSingleValueEvent(
@@ -101,7 +104,7 @@ public class RpsScore extends AppCompatActivity {
                                 return 0;
                             }
                         });
-                        //getPlace(valueOf(score2),entries);
+                        getPlace(score,entries);
                     }
 
                     @Override

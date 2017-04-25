@@ -11,7 +11,7 @@
 
 
     <TextView
-        android:text="RPS Highscore"
+        android:text="RPS Highscores"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="35sp"
