@@ -25,7 +25,7 @@
         android:textColor="#ffffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewId"
+        android:id="@+id/currentPlayer"
         android:layout_marginTop="12dp"
         android:textSize="36sp"
         android:layout_below="@+id/titleId"

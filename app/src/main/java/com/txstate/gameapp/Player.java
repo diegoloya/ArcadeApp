@@ -21,4 +21,16 @@ public class Player {
         this.uid=uid;
         this.rpsChoice=rpsChoice;
     }
+
+
+    public void setRpsChoice(int i){
+        this.rpsChoice=i;
+    }
+    public void setChallengeFlag(int i){
+        this.challengeFlag=i;
+    }
+
+    public int getRpsChoice(){
+        return this.rpsChoice;
+    }
 }

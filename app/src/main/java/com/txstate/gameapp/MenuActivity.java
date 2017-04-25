@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -21,6 +22,7 @@ public class MenuActivity extends AppCompatActivity {
 
     Button bSignOut;
     Button bChallengeRPS;
+    TextView currentUser;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mDatabase;
@@ -39,17 +41,16 @@ public class MenuActivity extends AppCompatActivity {
 
         bSignOut = (Button) findViewById(R.id.logout);
         bChallengeRPS = (Button) findViewById(R.id.bChallengeRPS);
-
+        currentUser = (TextView) findViewById(R.id.current);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         mDatabase.child("Players").child(user.getUid()).child("username").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String currentUser = dataSnapshot.getValue(String.class);
-
-
+                String current = dataSnapshot.getValue(String.class);
+                currentUser.setText(current);
 
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -74,7 +75,6 @@ public class MenuActivity extends AppCompatActivity {
         });
 
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("Players").child(user.getUid()).child("challengeFlag").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -92,8 +92,6 @@ public class MenuActivity extends AppCompatActivity {
                                     String friend = dataSnapshot.getValue(String.class);
                                     mDatabase.child("Players").child(friend).child("challengeFlag").setValue(2);
                                     mDatabase.child("Players").child(friend).child("friend").setValue(user.getUid());
-
-
                                 }
 
                                 @Override
@@ -102,11 +100,12 @@ public class MenuActivity extends AppCompatActivity {
                                 }
                             });
                             startActivity(new Intent(MenuActivity.this, TwoPlayerRpsActivity.class));
-
                         }
-
-
                     });
+                }
+                else if (message==2){
+                    Toast.makeText(MenuActivity.this, "Friend accepted challenge", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MenuActivity.this, TwoPlayerRpsActivity.class));
                 }
                 else
                     bChallengeRPS.setVisibility(View.INVISIBLE);

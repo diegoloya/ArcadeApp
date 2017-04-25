@@ -24,4 +24,8 @@
     <string name="facebook_application_id" translatable="false">280688182359419</string>
     <string name="facebook_login_protocol_scheme" translatable="false">280688182359419</string>
 
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 </resources>

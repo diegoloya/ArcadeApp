@@ -12,24 +12,28 @@
     android:background="@drawable/background"
     tools:context="com.txstate.gameapp.RpsActivity">
 
-    <ImageView
+    <TextView
+        android:id="@+id/friend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/rps_title"
-        android:id="@+id/titleId"
-        android:layout_marginTop="13dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:text="Friend"
+        android:textColor="#ffffff"
+        android:textSize="36sp"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+  />
 
     <TextView
-        android:textColor="#ffffff"
+        android:id="@+id/currentPlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewId"
-        android:layout_marginTop="12dp"
-        android:textSize="36sp"
-        android:layout_below="@+id/titleId"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="420dp"
+        android:text="Current"
+        android:textColor="#ffffff"
+        android:textSize="36sp" />
 
     <ImageView
         android:id="@+id/buttonPaper"
@@ -54,7 +58,6 @@
         android:adjustViewBounds="true"
         android:layout_alignParentBottom="true"
         android:layout_toStartOf="@+id/buttonPaper" />
-
     <ImageView
         android:id="@+id/buttonScissors"
         android:layout_width="wrap_content"
@@ -67,33 +70,16 @@
         android:layout_alignParentBottom="true"
         android:layout_toEndOf="@+id/buttonPaper" />
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="L"
-        android:layout_marginLeft="320dp"
-        android:inputType="number"
-        android:textSize="50sp"
-        android:layout_marginTop="350dp"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:text="W"
-        android:textSize="50sp"
-        android:inputType="number"
-        android:layout_marginTop="350dp"/>
-
-    <TextView
         android:id="@+id/wins"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:text="0"
+        android:layout_marginTop="350dp"
+        android:textAlignment="center"
         android:textSize="50sp"
-        android:inputType="number"
-        android:layout_marginTop="400dp"
-        />
+        android:inputType="number" />
     <TextView
         android:id="@+id/losses"
         android:layout_width="wrap_content"
@@ -101,9 +87,24 @@
         android:ems="10"
         android:text="0"
         android:textSize="50sp"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="320dp"
+        android:layout_marginTop="95dp"
         android:inputType="number"
-        />
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"/>
+
+    <ImageView
+        android:id="@+id/friendChoice"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/rock_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"/>
+    <ImageView
+        android:id="@+id/currentChoice"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/rock_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"/>
 
 </RelativeLayout>

@@ -1,9 +1,9 @@
 package com.txstate.gameapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,12 +18,11 @@ public class RpsActivity extends AppCompatActivity {
     TextView wins;
     TextView losses;
 
-    int winCount;
-    int loseCount;
-
     private TextView results;
     private String list[] = {"Rock", "Paper", "Scissors"};
     private int images[] = {R.drawable.rock_button, R.drawable.paper_button, R.drawable.scissors_button};
+    int winCount;
+    int loseCount;
 
 
     @Override
@@ -35,15 +34,16 @@ public class RpsActivity extends AppCompatActivity {
         paperButton = (ImageView) findViewById(R.id.buttonPaper);
         scissorButton = (ImageView) findViewById(R.id.buttonScissors);
         zombieChoice = (ImageView) findViewById(R.id.titleId);
-        results = (TextView) findViewById(R.id.textViewId);
+        results = (TextView) findViewById(R.id.currentPlayer);
         wins = (TextView) findViewById(R.id.wins);
         losses = (TextView) findViewById(R.id.losses);
         winCount=0;
         loseCount=0;
 
+        loseCount=play();
+    }
 
-
-
+    public int play(){
         rockButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,18 +55,25 @@ public class RpsActivity extends AppCompatActivity {
                 zombieChoice.setImageResource(images[rand]);
 
                 //Determines if the user won/lost/tied. Sets the test accordingly.
-                if(list[rand].equals("Scissors")){
+                if (list[rand].equals("Scissors")) {
                     //R.string.winText is the text set from the strings.xml file.
-                    winCount+=1;
+                    winCount += 1;
                     String temp = Integer.toString(winCount);
                     wins.setText(temp);
                     results.setText(list[rand] + "," + getString(R.string.winText));
-                }else if(list[rand].equals("Paper")){
+                } else if (list[rand].equals("Paper")) {
                     results.setText(list[rand] + "," + getString(R.string.loseText));
-                    loseCount+=1;
+                    loseCount += 1;
                     String temp = Integer.toString(loseCount);
                     losses.setText(temp);
-                }else{
+                    if(loseCount==3){
+                        Intent i = new Intent(RpsActivity.this, RpsScore.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("score", Integer.toString(winCount));
+                        i.putExtras(bundle);
+                        startActivity(i);
+                    }
+                } else {
                     results.setText(list[rand] + "," + getString(R.string.tieText));
                 }
             }
@@ -83,19 +90,27 @@ public class RpsActivity extends AppCompatActivity {
                 zombieChoice.setImageResource(images[rand]);
 
                 //Determines if the user won/lost/tied. Sets the test accordingly.
-                if(list[rand].equals("Rock")){
+                if (list[rand].equals("Rock")) {
                     //R.string.winText is the text set from the strings.xml file.
-                    winCount+=1;
+                    winCount += 1;
                     String temp = Integer.toString(winCount);
                     wins.setText(temp);
                     results.setText(list[rand] + "," + getString(R.string.winText));
 
-                }else if(list[rand].equals("Scissors")){
-                    loseCount+=1;
+                } else if (list[rand].equals("Scissors")) {
+                    loseCount += 1;
                     String temp = Integer.toString(loseCount);
                     losses.setText(temp);
                     results.setText(list[rand] + "," + getString(R.string.loseText));
-                }else{
+                    if(loseCount==3){
+                        Intent i = new Intent(RpsActivity.this, RpsScore.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("score", Integer.toString(winCount));
+                        i.putExtras(bundle);
+                        startActivity(i);
+                    }
+
+                } else {
                     results.setText(list[rand] + "," + getString(R.string.tieText));
                 }
             }
@@ -112,22 +127,31 @@ public class RpsActivity extends AppCompatActivity {
                 zombieChoice.setImageResource(images[rand]);
 
                 //Determines if the user won/lost/tied. Sets the test accordingly.
-                if(list[rand].equals("Paper")){
-                    winCount+=1;
+                if (list[rand].equals("Paper")) {
+                    winCount += 1;
                     String temp = Integer.toString(winCount);
                     wins.setText(temp);
                     //R.string.winText is the text set from the strings.xml file.
                     results.setText(list[rand] + "," + getString(R.string.winText));
-                }else if(list[rand].equals("Rock")){
-                    loseCount+=1;
+                } else if (list[rand].equals("Rock")) {
+                    loseCount += 1;
                     String temp = Integer.toString(loseCount);
                     losses.setText(temp);
                     results.setText(list[rand] + "," + getString(R.string.loseText));
-                }else{
+                    if(loseCount==3){
+                        Intent i = new Intent(RpsActivity.this, RpsScore.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("score", Integer.toString(winCount));
+                        i.putExtras(bundle);
+                        startActivity(i);
+                    }
+
+                } else {
                     results.setText(list[rand] + "," + getString(R.string.tieText));
                 }
             }
         });
-
+        return loseCount;
     }
+
 }

@@ -23,7 +23,9 @@
         </activity>
         <activity android:name=".TwoPlayer" />
         <activity android:name=".NumberPlayers" />
-        <activity android:name=".TwoPlayerRpsActivity"></activity>
+        <activity android:name=".TwoPlayerRpsActivity" />
+        <activity android:name=".RpsScore" />
+        <activity android:name=".RpsHighscores"></activity>
     </application>
 
 </manifest>
