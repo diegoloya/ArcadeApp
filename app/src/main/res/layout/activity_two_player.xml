@@ -11,6 +11,14 @@
     tools:context="com.txstate.gameapp.OnePlayer"
     android:background="@drawable/background">
 
+    <TextView
+        android:id="@+id/timeD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
     <Button
         android:id="@+id/button4"
         android:layout_width="179dp"
@@ -30,33 +38,28 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="450dp"/>
 
-    <ProgressBar
-        android:id="@+id/progressBar2"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="373dp"
-        android:layout_height="37dp"
-        android:progress="1"
-        android:visibility="visible"
-        tools:visibility="visible"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+    <EditText
+        android:id="@+id/counterValue"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_above="@+id/timeD"
+        android:layout_alignLeft="@+id/counterValue2"
+        android:layout_alignStart="@+id/counterValue2"
+        android:layout_marginBottom="35dp" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="95dp"
-        android:layout_height="79dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp" />
-
-    <ProgressBar
-        android:id="@+id/progressBar4"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="88dp"
-        android:layout_height="68dp"
-        android:max="1000"
-        android:layout_marginTop="36dp"
-        android:layout_below="@+id/progressBar2"
+    <EditText
+        android:id="@+id/counterValue2"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_below="@+id/timeD"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
+

@@ -3,6 +3,7 @@ package com.txstate.gameapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class RpsScore extends AppCompatActivity {
 
     Button bHighscore;
     Button playAgain;
+    Button mainMenu;
     TextView newHighscore;
     TextView score;
     DatabaseReference mDatabase;
@@ -47,6 +49,14 @@ public class RpsScore extends AppCompatActivity {
         bHighscore= (Button) findViewById(R.id.bhighscore);
         playAgain=(Button) findViewById(R.id.playAgain);
         newHighscore=(TextView) findViewById(R.id.highscore);
+        mainMenu = (Button) findViewById(R.id.menu);
+
+        mainMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RpsScore.this, MenuActivity.class));
+            }
+        });
 
         bHighscore.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +76,6 @@ public class RpsScore extends AppCompatActivity {
 
         getUsers(valueOf(scoreStr));
 
-        //Toast.makeText(this, entries.get(1).getUsername(), Toast.LENGTH_SHORT).show();
-        //getPlace(valueOf(scoreStr),entries);
     }
 
     private void getUsers(int score2) {

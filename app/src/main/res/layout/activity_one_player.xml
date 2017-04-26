@@ -21,45 +21,29 @@
         android:layout_height="150dp"
         android:text="@string/Tap"
         android:onClick="counterP1"
-        android:layout_below="@+id/progressBar5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="49dp" />
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
-    <ProgressBar
-        android:id="@+id/progressBar3"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:max="1000"
-        android:progress="1"
-        android:layout_width="373dp"
-        android:layout_height="37dp"
-        android:text="@string/Tap"
-        android:onClick="oneScore"
-        android:layout_above="@+id/progressBar5"
+    <EditText
+        android:id="@+id/counterValue"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number"
+        android:layout_marginBottom="65dp"
+        android:layout_above="@+id/button3"
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/Luck"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textSize="50dp"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints" />
-
-    <ProgressBar
-        android:id="@+id/progressBar5"
-        style="?android:attr/progressBarStyle"
-        android:max="1000"
-        android:progress="1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:text="@string/Tap"
-        android:onClick="oneScore"
-        android:layout_centerVertical="true"
+        android:id="@+id/timeD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_marginBottom="55dp"
+        android:layout_above="@+id/counterValue"
         android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

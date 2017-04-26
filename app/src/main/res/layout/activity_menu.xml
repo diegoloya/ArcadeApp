@@ -123,6 +123,7 @@
         android:layout_height="wrap_content"
         android:text="Current User"
         android:layout_marginRight="8dp"
+        android:textSize="30sp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
